@@ -4,14 +4,11 @@ console.log('Powered by Yunwu');
 
 const key = "GF3DA";
 
-
-function verify() {
+window.onload = function(event) {
     if(document.cookie.replace(/(?:(?:^|.*;\s*)key\s*\=\s*([^;]*).*$)|^.*$/, "$1") != key) {
-        window.document.body.innerHTML = "<h1>403 Forbidden</h1>" 
-        return;
+        event.preventDefault();
+        document.write("<h1>403</h1>");
+    } else {
+        console.log("Check passed");
     }
 }
-
-
-
-verify();
