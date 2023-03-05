@@ -1,6 +1,6 @@
 console.log('Google Mirror JS');
 console.log('Powered by Yunwu');
-console.log('v0.2-alpha-k1-03051531');
+console.log('v0.2-alpha-k1-03051545');
 
 const key = "GF3DA";
 
@@ -21,5 +21,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         };
         /[^.]+(?:\.m)?\.wikipedia\.wikimirror\.net/.test(href) && (href = href.replace('wikipedia', 'ruc'));
         dom.href = href;
+        dom.rel= 'noopener noreferrer';
     }
 })
