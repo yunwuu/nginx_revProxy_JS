@@ -1,6 +1,6 @@
 console.log('Google Mirror JS');
 console.log('Powered by Yunwu');
-
+console.log('v0.2-alpha-k1-03051517');
 
 const key = "GF3DA";
 
