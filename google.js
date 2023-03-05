@@ -21,6 +21,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         };
         /[^.]+(?:\.m)?\.wikipedia\.wikimirror\.net/.test(href) && (href = href.replace('wikipedia', 'ruc'));
         dom.href = href;
-        dom.rel= 'noopener noreferrer';
+        dom.rel= 'noreferrer';
     }
 })
