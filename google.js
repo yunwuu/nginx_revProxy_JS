@@ -8,21 +8,24 @@ const key = "GF3DA";
 const forbidWords = ["JUU2JTk2JTg3JUU5JTlEJUE5", "JUU0JUI5JUEwJUU4JUJGJTkxJUU1JUI5JUIz"]; // 屏蔽词
 
 
+// 公共函数
+function  getQueryVariable(name) {
+    const reg = new RegExp("(^|&)" + name+ "=([^&]*)(&|$)", "i");
+    const result = window.location.search.substr(1).match(reg);
+    if ( result != null ){
+       return decodeURI(result[2]);
+   }else{
+       return null;
+   }
+}
+function verifyWords(name) {
+    const bname = btoa(encodeURIComponent(name));
+    return forbidWords.indexOf(bname) != -1;
+}
+
+
 window.onload = function (event) {
     // 敏感词过滤
-    function  getQueryVariable(name) {
-        const reg = new RegExp("(^|&)" + name+ "=([^&]*)(&|$)", "i");
-        const result = window.location.search.substr(1).match(reg);
-        if ( result != null ){
-           return decodeURI(result[2]);
-       }else{
-           return null;
-       }
-    }
-    function verifyWords(name) {
-        const bname = btoa(encodeURIComponent(name));
-        return forbidWords.indexOf(bname) != -1;
-    }
     if(window.location.pathname == "/search" && verifyWords(getQueryVariable("q"))) {
         console.log("Not allowed.");
         window.location.href = "https://gp.yunwuu.cn/";
@@ -56,6 +59,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     // FireFox兼容性提示
     if(navigator.userAgent.indexOf('Firefox') != -1) {
-        document.querySelectorAll("#result-stats")[0].innerText = "请注意 FireFox访问本站可能存在兼容性问题 如果遇到问题 请使用Chrome.";
+        if(window.location.pathname == "/search") {
+            document.querySelectorAll("#result-stats")[0].innerText = "请注意 FireFox访问本站可能存在兼容性问题 如果遇到问题 请使用Chrome.";
+        }
     }
 })
