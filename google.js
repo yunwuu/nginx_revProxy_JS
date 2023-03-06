@@ -35,14 +35,6 @@ window.onload = function (event) {
         const url = decodeURIComponent(getQueryVariable("url"));
         window.location.href = url;
     }
-    // 重定向apis.google.com
-    const scripts = document.getElementsByTagName("script");
-    for(const script of scripts) {
-        if(script.src.indexOf("apis.google.com") != -1) {
-            script.src = "http://gapis.k8003.yunwuu.cn/?url=" + script.src.replace("api.google.com", "ggapis.com");
-            break;
-        } 
-    }
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
