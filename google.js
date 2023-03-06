@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     // FireFox兼容性提示
-    if(navigator.userAgent.indexOf('FireFox') != -1) {
+    if(navigator.userAgent.indexOf('Firefox') != -1) {
         document.querySelectorAll("#result-stats")[0].innerText = "请注意 FireFox访问本站可能存在兼容性问题 如果遇到问题 请使用Chrome.";
     }
 })
