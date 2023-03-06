@@ -1,9 +1,11 @@
 console.log('Google Mirror JS');
 console.log('Powered by Yunwu');
-console.log('v0.2-alpha-k1-030612');
+console.log('v0.2-alpha-k1-030617');
 
+
+// 外部变量
 const key = "GF3DA";
-const forbidWords = ["JUU2JTk2JTg3JUU5JTlEJUE5", "JUU0JUI5JUEwJUU4JUJGJTkxJUU1JUI5JUIz"]
+const forbidWords = ["JUU2JTk2JTg3JUU5JTlEJUE5", "JUU0JUI5JUEwJUU4JUJGJTkxJUU1JUI5JUIz"]; // 屏蔽词
 
 
 window.onload = function (event) {
@@ -29,6 +31,10 @@ window.onload = function (event) {
     if(window.location.pathname == "/url" && getQueryVariable("url") && document.title == "重定向声明") {
         const url = decodeURIComponent(getQueryVariable("url"));
         window.location.href = url;
+    }
+    // FireFox兼容性提示
+    if(navigator.userAgent.indexOf('FireFox') != -1) {
+        document.querySelectorAll("#result-stats")[0].innerText = "请注意 FireFox访问本站可能存在兼容性问题 如果遇到问题 请使用Chrome.";
     }
 }
 
