@@ -3,7 +3,6 @@ console.log('Powered by Yunwu');
 console.log('v0.2-alpha-k1-030612');
 
 const key = "GF3DA";
-const location = window.location;
 const forbidWords = ["JUU2JTk2JTg3JUU5JTlEJUE5", "JUU0JUI5JUEwJUU4JUJGJTkxJUU1JUI5JUIz"]
 
 
