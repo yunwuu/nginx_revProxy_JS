@@ -32,10 +32,6 @@ window.onload = function (event) {
         const url = decodeURIComponent(getQueryVariable("url"));
         window.location.href = url;
     }
-    // FireFox兼容性提示
-    if(navigator.userAgent.indexOf('FireFox') != -1) {
-        document.querySelectorAll("#result-stats")[0].innerText = "请注意 FireFox访问本站可能存在兼容性问题 如果遇到问题 请使用Chrome.";
-    }
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -56,5 +52,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
         /[^.]+(?:\.m)?\.wikipedia\.wikimirror\.net/.test(href) && (href = href.replace('wikipedia', 'ruc'));
         dom.href = href;
         dom.rel= 'noreferrer';
+    }
+
+    // FireFox兼容性提示
+    if(navigator.userAgent.indexOf('FireFox') != -1) {
+        document.querySelectorAll("#result-stats")[0].innerText = "请注意 FireFox访问本站可能存在兼容性问题 如果遇到问题 请使用Chrome.";
     }
 })
