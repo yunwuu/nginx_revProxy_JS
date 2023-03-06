@@ -25,6 +25,11 @@ window.onload = function (event) {
         console.log("Not allowed.");
         window.location.href = "https://gp.yunwuu.cn/";
     } 
+    // 取消重定向声明
+    if(window.location.pathname == "/url" && getQueryVariable("url") && document.title == "重定向声明") {
+        const url = decodeURIComponent(getQueryVariable("url"));
+        window.location.href = url;
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
