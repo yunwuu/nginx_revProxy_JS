@@ -23,7 +23,7 @@ window.onload = function (event) {
     }
     if(window.location.pathname == "/search" && verifyWords(getQueryVariable("q"))) {
         console.log("Not allowed.");
-        document.write("Error!");
+        window.location.href = "https://gp.yunwuu.cn/";
     } 
 }
 
