@@ -1,8 +1,32 @@
 console.log('Google Mirror JS');
 console.log('Powered by Yunwu');
-console.log('v0.2-alpha-k1-03051545');
+console.log('v0.2-alpha-k1-030612');
 
 const key = "GF3DA";
+const location = window.location;
+const forbidWords = ["JUU2JTk2JTg3JUU5JTlEJUE5", "JUU0JUI5JUEwJUU4JUJGJTkxJUU1JUI5JUIz"]
+
+
+window.onload = function (event) {
+    // 敏感词过滤
+    function  getQueryVariable(name) {
+        const reg = new RegExp("(^|&)" + name+ "=([^&]*)(&|$)", "i");
+        const result = window.location.search.substr(1).match(reg);
+        if ( result != null ){
+           return decodeURI(result[2]);
+       }else{
+           return null;
+       }
+    }
+    function verifyWords(name) {
+        const bname = btoa(encodeURIComponent(name));
+        return forbidWords.indexOf(bname) != -1;
+    }
+    if(window.location.pathname == "/search" && verifyWords(getQueryVariable("q"))) {
+        console.log("Not allowed.");
+        document.write("Error!");
+    } 
+}
 
 document.addEventListener("DOMContentLoaded", function(event) {
     if(document.cookie.replace(/(?:(?:^|.*;\s*)key\s*\=\s*([^;]*).*$)|^.*$/, "$1") != key) {
