@@ -1,6 +1,6 @@
 console.log('Google Mirror JS');
 console.log('Powered by Yunwu');
-console.log('v0.2-alpha-k1-030617');
+console.log('v0.2-alpha-k1-030620');
 
 
 // 外部变量
@@ -34,6 +34,14 @@ window.onload = function (event) {
     if(window.location.pathname == "/url" && getQueryVariable("url") && document.title == "重定向声明") {
         const url = decodeURIComponent(getQueryVariable("url"));
         window.location.href = url;
+    }
+    // 重定向apis.google.com
+    const scripts = document.getElementsByTagName("script");
+    for(const script of scripts) {
+        if(script.src.indexOf("apis.google.com") != -1) {
+            script.src = "http://gapis.k8003.yunwuu.cn/?url=" + script.src.replace("api.google.com", "ggapis.com");
+            break;
+        } 
     }
 }
 
